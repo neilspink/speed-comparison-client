@@ -1,0 +1,8 @@
+<h1>Tasks</h1>
+{{#each model as |task|}}
+    <div class="well">
+        <h4>{{#link-to 'tasks.edit' task.id}}{{task.sitename}}{{/link-to}}</h4>
+        <p>{{task.siteurl}}</p>
+        <button {{action 'deleteTask' task}} class="btn btn-danger">Delete</button>
+    </div>
+{{/each}}

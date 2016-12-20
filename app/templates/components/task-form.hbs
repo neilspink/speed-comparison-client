@@ -1,0 +1,25 @@
+<form>
+  {{#if hasErrors}}
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        {{#if model.errors.sitename}}
+          <li> Name - {{model.errors.sitename}} </li>
+        {{/if}}
+        {{#if model.errors.siteurl}}
+          <li> Website URL - {{model.errors.siteurl}} </li>
+        {{/if}}
+      </ul>
+    </div>
+  {{/if}}
+  <div class="form-group">
+    <label>Name</label>
+    {{input type="text" class="form-control" value=model.sitename}}
+  </div>
+  <div class="form-group">
+    <label>Website URL</label>
+    {{input type="text" class="form-control" value=model.siteurl}}
+  </div>
+  <button {{action 'submit'}} class="btn btn-primary">
+    Submit
+  </button>
+</form>
