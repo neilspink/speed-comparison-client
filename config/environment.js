@@ -9,6 +9,15 @@ module.exports = function(environment) {
       'frame-src': "'self' https://*.firebaseapp.com",
       'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
     },
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'google-oauth2-bearer': {
+          apiKey: '751281579462-205jepqb4280dqpik5e0ag1885996mi5.apps.googleusercontent.com',
+          redirectUri: 'http://localhost:4200',
+        },
+      }
+    },
     firebase: {
       apiKey: 'AIzaSyAF3clPSAxC0fHRgEjPjDXdjbpFb9Qn20w',
       authDomain: 'clouded-mon.firebaseapp.com',
