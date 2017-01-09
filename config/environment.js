@@ -13,17 +13,17 @@ module.exports = function(environment) {
       sessionServiceName: 'session',
       providers: {
         'google-oauth2-bearer': {
-          apiKey: '751281579462-205jepqb4280dqpik5e0ag1885996mi5.apps.googleusercontent.com',
+          apiKey: '751281579462-bkshft1tl4beob7lcqnrvq3t8vodluio.apps.googleusercontent.com',
           redirectUri: 'http://localhost:4200',
         },
       }
     },
     firebase: {
-      apiKey: 'AIzaSyAF3clPSAxC0fHRgEjPjDXdjbpFb9Qn20w',
-      authDomain: 'clouded-mon.firebaseapp.com',
-      databaseURL: 'https://clouded-mon.firebaseio.com/',
-      storageBucket: 'clouded-mon.appspot.com',
-      messagingSenderId: '751281579462'
+      apiKey: 'AIzaSyARtK_u3TPdLFK7Kf7jPEFKE5VIr0W0FXE',
+      authDomain: 'clouded-speed-comparison.firebaseapp.com',
+      databaseURL: 'https://clouded-speed-comparison.firebaseio.com',
+      storageBucket: 'clouded-speed-comparison.appspot.com',
+      messagingSenderId: '1025009379697'
     },
     rootURL: '/',
     locationType: 'auto',

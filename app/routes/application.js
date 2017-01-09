@@ -7,7 +7,10 @@ export default Ember.Route.extend({
     login(){
       this.get('session').authenticate('authenticator:firebase-simple-auth','firebase-simple-auth',{
         provider: 'google'
-      }).then(() => this.transitionTo('tasks'));
+      }).then(function(){
+        this.transitionTo('tasks');
+      });
+
     },
 
     logout(){

@@ -1,25 +1,44 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
+import { manualSetup, make } from 'ember-data-factory-guy';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('task-form', 'Integration | Component | task form', {
-  integration: true
+  integration: true,
+  setup() {
+    manualSetup(this.container);
+  },
 });
 
-test('it renders', function(assert) {
+test('it dont shows errors if model is valid', function(assert) {
+  Ember.run(() =>{
+    let save = function(){
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    };
+    this.set('save', save);
+    let model = make('task');
+    this.set('model', model);
+    this.render(hbs`{{task-form model=model save=save}}`);
+    Ember.run(() => {
+      this.$('.btn.btn-primary.x-submit').click();
+      assert.notOk(this.get('hasErrors'));
+    });
+  });
+});
 
-  this.render(hbs`{{task-form}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#task-form}}
-      template block text
-    {{/task-form}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+test('it calls save function', function(assert) {
+  var done = assert.async();
+  Ember.run(() =>{
+    let save = function(model){
+      assert.ok(model.get('siteurl'));
+      done();
+    };
+    this.set('save', save);
+    let model = make('task');
+    this.set('model', model);
+    this.render(hbs`{{task-form model=model save=save}}`);
+    Ember.run(() => {
+      this.$('.btn.btn-primary.x-submit').click();
+    });
+  });
 });

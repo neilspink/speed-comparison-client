@@ -12,5 +12,6 @@ export default DS.Model.extend(EmberValidations, {
   },
   sitename: DS.attr('string'),
   siteurl: DS.attr('string'),
+  speed: DS.attr('number'),
   created: DS.attr('date', { defaultValue: () => new Date() })
 });
