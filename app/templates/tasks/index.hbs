@@ -1,10 +1,36 @@
 <h1>Tasks</h1>
-{{#each model as |task|}}
-    <div class="well">
-      <h4>{{#link-to 'tasks.edit' task.id}}{{task.sitename}}{{/link-to}}</h4>
-      <p>{{task.siteurl}}&nbsp;{{#if task.speed}}<span>Google page speed: {{task.speed}}</span>{{/if}}</p>
-      <button {{action 'getPageSpeed' task}} class="btn btn-primary">Get Speed</button>
-      <button {{action 'deleteTask' task}} class="btn btn-danger">Delete</button>
-    </div>
+<table class="table fixed-table-container">
+  <thead>
+  <tr>
+    <th {{action 'sort' 'speed'}}>
+      {{#if (eq sortField 'speed')}}
+      <div class="th-inner sortable {{if (eq sortType 'asc') 'asc' 'desc'}}">Speed</div>
+    {{else}}
+      <div class="th-inner sortable both">Speed</div>
+    {{/if}}
+      </th>
+    <th {{action 'sort' 'usability'}}>
+      {{#if (eq sortField 'usability')}}
+        <div class="th-inner sortable {{if (eq sortType 'asc') 'asc' 'desc'}}">Usability</div>
+      {{else}}
+        <div class="th-inner sortable both">Usability</div>
+      {{/if}}
+    </th>
+    <th>Name</th>
+    <th>URL</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+{{#each sortedCollection as |task|}}
+<tr>
+  <td>{{task.speed}}</td>
+  <td>{{task.usability}}</td>
+  <td><h4>{{#link-to 'tasks.edit' task.id}}{{task.sitename}}{{/link-to}}</h4></td>
+  <td>{{task.siteurl}}</td>
+  <td>
+    <button {{action 'getPageSpeed' task}} class="btn btn-primary">Check Speed</button>
+    <button {{action 'deleteTask' task}} class="btn btn-danger">Delete</button>
+  </td>
+</tr>
 {{/each}}
-
+</table>

@@ -17,7 +17,7 @@
               {{else}}
                 <li>{{#link-to 'tasks'}}Tasks{{/link-to}}</li>
                 <li>{{#link-to 'tasks.new'}}New Task{{/link-to}}</li>
-                <li>{{#link-to 'speed'}}Check Speeds!{{/link-to}}</li>
+                <li><button {{action 'speed'}} class="btn btn-link" style="text-decoration: none; outline: none;padding-top: 15px; padding-bottom: 15px;">Check Speeds!</button></li>
                 <li><a href="#" {{action 'logout'}}>Logout</a></li>
               {{/unless}}
             </ul>
