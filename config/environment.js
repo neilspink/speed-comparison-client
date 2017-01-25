@@ -19,11 +19,11 @@ module.exports = function(environment) {
       }
     },
     firebase: {
-      apiKey: 'AIzaSyARtK_u3TPdLFK7Kf7jPEFKE5VIr0W0FXE',
-      authDomain: 'clouded-speed-comparison.firebaseapp.com',
-      databaseURL: 'https://clouded-speed-comparison.firebaseio.com',
-      storageBucket: 'clouded-speed-comparison.appspot.com',
-      messagingSenderId: '1025009379697'
+      apiKey: 'AIzaSyDHAZj0dfyECcKoNSLR_giwU6P5-SdeQHU',
+      authDomain: 'clouded-pagespeed-client.firebaseapp.com',
+      databaseURL: 'https://clouded-pagespeed-client.firebaseio.com',
+      storageBucket: 'clouded-pagespeed-client.appspot.com',
+      messagingSenderId: '584200479302'
     },
     rootURL: '/',
     locationType: 'auto',

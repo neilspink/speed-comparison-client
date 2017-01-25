@@ -59,6 +59,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         console.log('queried here it is');
 
         task.set('speed', result.get('speed'));
+        task.set('usability', result.get('usability'));
         console.log(result.get('speed'));
       });
     }
