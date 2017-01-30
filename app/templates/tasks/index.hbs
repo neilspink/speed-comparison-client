@@ -1,36 +1,50 @@
-<h1>Tasks</h1>
-<table class="table fixed-table-container">
+<div class="row">
+<table class="table table-condensed">
   <thead>
   <tr>
-    <th {{action 'sort' 'speed'}}>
+    <th {{action 'sort' 'speed'}} class="col-md-2 col-xs-2">
       {{#if (eq sortField 'speed')}}
-      <div class="th-inner sortable {{if (eq sortType 'asc') 'asc' 'desc'}}">Speed</div>
+      <div class="th-inner sortable {{if (eq sortType 'asc') 'asc' 'desc'}}">Speed
+        {{#if (eq sortType 'asc')}}
+        <span class="glyphicon glyphicon-sort-by-order"></span>
+        {{else}}
+        <span class="glyphicon glyphicon-sort-by-order-alt"></span>
+        {{/if}}
+      </div>
     {{else}}
-      <div class="th-inner sortable both">Speed</div>
+      <div class="th-inner sortable both">Speed <span class="glyphicon glyphicon-sort"></span></div>
     {{/if}}
       </th>
-    <th {{action 'sort' 'usability'}}>
+    <th {{action 'sort' 'usability'}} class="col-md-2 col-xs-2">
       {{#if (eq sortField 'usability')}}
-        <div class="th-inner sortable {{if (eq sortType 'asc') 'asc' 'desc'}}">Usability</div>
+        <div class="th-inner sortable {{if (eq sortType 'asc') 'asc' 'desc'}}">Mobile
+          {{#if (eq sortType 'asc')}}
+            <span class="glyphicon glyphicon-sort-by-order"></span>
+          {{else}}
+            <span class="glyphicon glyphicon-sort-by-order-alt"></span>
+          {{/if}}
+        </div>
       {{else}}
-        <div class="th-inner sortable both">Usability</div>
+        <div class="th-inner sortable both">Mobile <span class="glyphicon glyphicon-sort"></span></div>
       {{/if}}
     </th>
-    <th>Name</th>
-    <th>URL</th>
-    <th>Action</th>
+    <th class="col-md-2 col-xs-4">Name</th>
+    <th class="col-md-3 hidden-xs">URL</th>
+    <th class="col-md-1 col-xs-2">Action</th>
   </tr>
   </thead>
 {{#each sortedCollection as |task|}}
 <tr>
-  <td>{{task.speed}}</td>
-  <td>{{task.usability}}</td>
-  <td><h4>{{#link-to 'tasks.edit' task.id}}{{task.sitename}}{{/link-to}}</h4></td>
-  <td>{{task.siteurl}}</td>
-  <td>
-    <button {{action 'getPageSpeed' task}} class="btn btn-primary">Check Speed</button>
-    <button {{action 'deleteTask' task}} class="btn btn-danger">Delete</button>
+  <td class="col-md-2 col-xs-2">{{task.speed}}</td>
+  <td class="col-md-2 col-xs-2">{{task.usability}}</td>
+  <td class="col-md-2 col-xs-2"><a href="https://developers.google.com/speed/pagespeed/insights/?url={{task.siteurl}}" target="_blank">{{task.sitename}}</a></td>
+  <td class="col-md-2 hidden-xs">{{task.siteurl}}</td>
+  <td class="col-md-2 col-xs-2">
+    <button {{action 'getPageSpeed' task}} class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
+    {{#link-to 'tasks.edit' task.id class="btn btn-primary"}}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
+    <button {{action 'deleteTask' task}} class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
   </td>
 </tr>
 {{/each}}
 </table>
+</div>

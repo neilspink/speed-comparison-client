@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   sortField: 'speed',
   sortType: 'desc',
-
   sortedCollection: Ember.computed('model.[]', 'sortType', 'sortField', function(){
     if (!this.get('model')){
       return [];

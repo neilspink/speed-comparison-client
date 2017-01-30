@@ -8,7 +8,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     });
   },
 
-
   actions: {
     speed() {
       console.log('check speed of all sites...');
